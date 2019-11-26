@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Authors</title>
+</head>
+<body>
+
+{% for author in authors %}
+
+    <em>Nom</em> : {{ author.name }}
+    <br>
+    <em>Prénom</em> : {{ author.firstname }}
+    <br>
+    <em>Date de naissance</em> : {{ author.birthdate | date("d - m - Y")}}
+    <br>
+    <em>Date de décès</em> : {{ author.deathdate | date("d - m - Y") }}
+    <br>
+    <br>
+
+
+
+
+{% endfor %}
+
+</body>
+</html>
