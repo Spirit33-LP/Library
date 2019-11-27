@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Authors</title>
+</head>
+<body>
+
+{% for author in authors %}
+
+    <em>Nom</em> : {{ author.name }}
+    <br>
+    <em>Prénom</em> : {{ author.firstname }}
+    <br>
+    <em>Date de naissance</em> : {{ author.birthdate | date("d - m - Y")}}
+    <br>
+    {% if author.deathdate is not null %} <em>Date de décès</em> : {{ author.deathdate | date("d - m - Y") }} {% endif %}
+    <br>
+    {# le "path" est utilisé pour redirigé vers une "@Route" / en paramètre on lui met le "name" de la @Route
+    si la @Route a un paramètre (ici : {id}) il faut dans les {} indiqué {"id" : author.id} #}
+    <a href="{{ path ('author', {"id" : author.id}) }}"><input type="button" value="En voir plus"></a>
+    <br>
+    <br>
+
+{% endfor %}
+
+</body>
+</html>

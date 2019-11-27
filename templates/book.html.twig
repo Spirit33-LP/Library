@@ -5,11 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Books</title>
+    <title>Book</title>
 </head>
 <body>
-
-{% for book in books %}
 
     <em>Titre du livre</em> : {{ book.Title }}
     <br>
@@ -17,18 +15,11 @@
     <br>
     <em>Le nombre de pages</em> : {{ book.nbPages }}
     <br>
-    <em>Livre en stock</em> : {% if book.inStock %} oui {% else %} non {% endif %}
+    <em>Livre en stock</em> : {{ book.inStock }}
     <br>
     <a href="{{ path ('book', {"id" : book.id}) }}"><input type="button" value="En voir plus"></a>
     <br>
-    <a href="{{ path ('books_update_id', {"id" : book.id}) }}"><input type="button" value="Mettre à jour"></a>
     <br>
-    <a href="{{ path ('books_delete_id', {"id" : book.id}) }}"><input type="button" value="Supprimer"></a>
-    <br>
-    <br>
-
-{% endfor %}
 
 </body>
-
 </html>
